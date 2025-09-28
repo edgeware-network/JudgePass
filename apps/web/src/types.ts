@@ -1,4 +1,5 @@
 export type JudgeMetadata = {
+  tokenId: number;
   version: string;
   rubric: Array<{ criterion: string; weight: number }>;
   prompts: { system: string; userTemplate: string };

@@ -163,7 +163,7 @@ export function ScoringPage() {
                 className="form-textarea w-full rounded-lg bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700 focus:border-primary focus:ring-primary text-gray-800 dark:text-gray-200"
                 id="justification"
                 placeholder="Your justification will be overridden by the AI's justification."
-                rows="5"
+                rows={5}
                 value={justification}
                 onChange={(e) => setJustification(e.target.value)}
               />

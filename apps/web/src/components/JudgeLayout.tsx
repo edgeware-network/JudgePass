@@ -1,6 +1,5 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { ConnectWalletButton } from "./ConnectWalletButton";
-import { ConnectWallet } from "./ConnectWallet";
 import { useAccount } from "wagmi";
 
 const Logo = () => (

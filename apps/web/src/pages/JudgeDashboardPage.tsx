@@ -30,7 +30,7 @@ export function JudgeDashboardPage() {
   if (!metadata) {
     return (
       <JudgeLoader
-        wallet={address}
+        wallet={address || ""}
         onLoaded={(id, meta) => {
           const fullMeta = { ...meta, tokenId: id };
           setMetadata(fullMeta);

@@ -2,6 +2,7 @@ import { JudgeMetadata, Scorecard } from "../types";
 
 // --- MOCK DATA ---
 const mockMetadata: JudgeMetadata = {
+  tokenId: 1,
   version: "Mock Judge v1.0",
   rubric: [
     { criterion: "Clarity", weight: 0.4 },
@@ -31,13 +32,13 @@ const simulateDelay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
 export async function fetchJudgeMetadata(
   tokenId: number,
-  wallet: string
+  _wallet: string
 ): Promise<{ metadata: JudgeMetadata }> {
   console.log(
     " MOCK API: Fetching metadata for token",
     tokenId,
     "and wallet",
-    wallet
+    _wallet
   );
   await simulateDelay(1000);
   if (tokenId !== 1) {
@@ -49,7 +50,7 @@ export async function fetchJudgeMetadata(
 
 export async function runJudge(
   tokenId: number,
-  wallet: string,
+  _wallet: string,
   submissionId: string,
   text: string
 ): Promise<{ scorecard: Scorecard }> {
@@ -71,12 +72,23 @@ export async function runJudge(
 
 export async function uploadScorecard(
   tokenId: number,
-  scorecard: Scorecard
+  _scorecard: Scorecard
 ): Promise<{ rootHash: string; txHash: string }> {
   console.log(" MOCK API: Uploading scorecard for token", tokenId);
   await simulateDelay(1500);
   return {
     rootHash: `0x_mock_root_hash_${Math.random().toString(36).substring(2)}`,
     txHash: `0x_mock_tx_hash_${Math.random().toString(36).substring(2)}`,
+  };
+}
+
+export async function listServices(): Promise<{ services: any[] }> {
+  console.log(" MOCK API: Listing services");
+  await simulateDelay(500);
+  return {
+    services: [
+      { id: 1, name: "Mock Judge Service", description: "A mock judge service for testing" },
+      { id: 2, name: "Another Mock Service", description: "Another mock service" },
+    ],
   };
 }

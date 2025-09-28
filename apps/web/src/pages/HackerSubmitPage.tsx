@@ -19,7 +19,7 @@ export function HackerSubmitPage() {
     }
     setIsSubmitting(true);
 
-    const newSubmission = addSubmission({
+    addSubmission({
       title,
       team,
       links,
